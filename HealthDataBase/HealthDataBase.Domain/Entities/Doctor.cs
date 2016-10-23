@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
-    class Doctor
+    class Doctor : Person
     {
+        // Doctor is a inheritance of Person class
     }
 }
