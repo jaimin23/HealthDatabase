@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthDataBase", "HealthDataBase\HealthDataBase.csproj", "{8D976417-6DDA-4B33-B0E7-5BC75E98903D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthDataBase.WebUI", "HealthDataBase\HealthDataBase.WebUI.csproj", "{8D976417-6DDA-4B33-B0E7-5BC75E98903D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthDataBase.UnitTests", "HealthDataBase.UnitTests\HealthDataBase.UnitTests.csproj", "{F1497581-1708-48D0-BAEE-53F8B808511E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthDataBase.Domain", "HealthDataBase.Domain\HealthDataBase.Domain.csproj", "{73272154-467A-4B12-BA0B-359A8C5E7E04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8D976417-6DDA-4B33-B0E7-5BC75E98903D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D976417-6DDA-4B33-B0E7-5BC75E98903D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D976417-6DDA-4B33-B0E7-5BC75E98903D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1497581-1708-48D0-BAEE-53F8B808511E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1497581-1708-48D0-BAEE-53F8B808511E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1497581-1708-48D0-BAEE-53F8B808511E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1497581-1708-48D0-BAEE-53F8B808511E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73272154-467A-4B12-BA0B-359A8C5E7E04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73272154-467A-4B12-BA0B-359A8C5E7E04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73272154-467A-4B12-BA0B-359A8C5E7E04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73272154-467A-4B12-BA0B-359A8C5E7E04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
