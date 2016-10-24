@@ -1,4 +1,5 @@
 ﻿using HealthDataBase.Domain.Entities;
+using HealthDataBase.Domain.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,14 @@ namespace HealthDataBase.Controllers
 {
     public class HomeController : Controller
     {
-       
-        List<illness> illnessList;
-        public HomeController()
+        private List<illness> _list;
+        MainManager MManger;
+       public HomeController()
         {
-            illnessList = new List<illness>();
-            illness item = new illness();
-            item.Name = "flu";
-            item.treatment = "drink warm soup/ use tynol";
-            item.priority = "4";
-            item.symptomArray = new List<string>();
-            item.symptomArray.Add("Heahache");
-            item.symptomArray.Add("coughs");
-            illnessList.Add(item);
+            MManger = new MainManager();
+            _list = MManger.populateList();
         }
+       
         // GET: Home
         public ActionResult Index()
         {
@@ -31,16 +26,14 @@ namespace HealthDataBase.Controllers
 
         public ViewResult Search(string _txtSearch)
         {
-            string work = "";
-            foreach( illness item in illnessList){
-                foreach (string i in item.symptomArray){
-                    if(_txtSearch == i)
-                    {
-                        work= "works";
-                    }
+            foreach(string i in MManger.Search(_txtSearch).symptomArray)
+            {
+                if(_txtSearch == i)
+                {
+                    return View("result",MManger.Search(_txtSearch));
                 }
             }
-            return View(work);
+            return View();
         }
         public ViewResult SignUp(users user)
         {
