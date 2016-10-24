@@ -1,4 +1,5 @@
-﻿
+﻿@using HealthDataBase.Domain.Entities
+@model users
 @{
     Layout = null;
 }
@@ -58,10 +59,37 @@ code from w3school.com
                     <h4 class="modal-title">Sign Up</h4>
                 </div>
                 <div class="modal-body">
-                    
+                    <div class="container" style="width:400px; margin:auto;">
+                        @using (Html.BeginForm("SignUp","Home"))
+                        {
+                            <div class="form-group">
+                                <label>First Name</label>@Html.TextBox("FirstName", "", new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>@Html.TextBox("LastName", "", new { @class = "form-control" })
+
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>@Html.TextBox("EmailAddress", "", new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>@Html.TextBox("PhoneNumber", "", new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Username</label>@Html.TextBox("username", "", new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>@Html.TextBox("password", "", new { @class = "form-control" })
+                            </div>
+                            <div>
+                                <input class="btn btn-success" type="submit" name="_btnSignup" value="Sign Up" />
+                            </div>
+                        }
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default text-center" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
@@ -89,8 +117,17 @@ code from w3school.com
 
     <!--main content-->
     <div class="container">
-
-
+        <div class="col-md-8">
+            @using (Html.BeginForm("search","Home"))
+            {
+                <div class="form-group">
+                    <label>Enter Syptoms</label>@Html.TextBox("_txtSearch", "", new { @class = "form-control" })
+                </div>
+                <div>
+                    <input class="btn btn-success" type="submit" name="_btnSubmit" value="Submit" />
+                </div>
+            }
+        </div>
     </div>
 </body>
 </html>

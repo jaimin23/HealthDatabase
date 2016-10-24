@@ -8,9 +8,9 @@ namespace HealthDataBase.Domain.Entities
 {
     public class Person
     {
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        string EmailAddress { get; set; }
-        string PhoneNumber { get; set;}
+       public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EmailAddress { get; set; }
+        public string PhoneNumber { get; set;}
     }
 }
