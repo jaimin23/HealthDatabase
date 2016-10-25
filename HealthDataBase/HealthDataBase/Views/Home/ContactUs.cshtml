@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <!--
 Fahad Mirza
-code from w3school.com    
+code from w3school.com
 -->
 <html>
 <head>
@@ -17,8 +17,8 @@ code from w3school.com
     <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <script src="~/scripts/bootstrap.min.js"></script>
-    
-  
+
+
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -30,19 +30,19 @@ code from w3school.com
                     <span class="icon-bar"></span>
                 </button>
                 <div>
-                   <a class="navbar-brand" href="#"><p>Health Center</p></a>
+                    <a class="navbar-brand" href="#"><p>Health Center</p></a>
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="nbar">
                 <ul class="nav navbar-nav">
-                    <li class="active">@Html.ActionLink("Home", "index")</li>    
-                    <li>@Html.ActionLink("About Us","AboutUs")</li>
-                    <li>@Html.ActionLink("Near By Clinics","NearByClinics")</li>
-                    <li>@Html.ActionLink("Contact Us","ContactUs")</li>
+                    <li class="active">@Html.ActionLink("Home", "index")</li>
+                    <li>@Html.ActionLink("About Us", "AboutUs")</li>
+                    <li>@Html.ActionLink("Near By Clinics", "NearByClinics")</li>
+                    <li>@Html.ActionLink("Contact Us", "ContactUs")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a data-toggle="modal" data-target="#SignUpPOP" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    
+
 
                     <li><a data-toggle="modal" data-target="#LOGINPOP" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
@@ -60,7 +60,7 @@ code from w3school.com
                 </div>
                 <div class="modal-body">
                     <div class="container" style="width:400px; margin:auto;">
-                        @using (Html.BeginForm("SignUp","Home"))
+                        @using (Html.BeginForm("SignUp", "Home"))
                         {
                             <div class="form-group">
                                 <label>First Name</label>@Html.TextBox("FirstName", "", new { @class = "form-control" })
@@ -102,40 +102,36 @@ code from w3school.com
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Login</h4>
-                   @using (Html.BeginForm("LogIn", "Home"))
-                   {
-                    <div class="form-group">
-                        <label>Username</label>@Html.TextBox("username", "", new { @class = "form-control" })
-                    </div>
+                    @using (Html.BeginForm("LogIn", "Home"))
+                    {
+                        <div class="form-group">
+                            <label>Username</label>@Html.TextBox("username", "", new { @class = "form-control" })
+                        </div>
                         <div class="form-group">
                             <label>Password</label>@Html.TextBox("password", "", new { @class = "form-control" })
                         </div>
                         <div>
                             <input class="btn btn-success" type="submit" name="_btnLogIn" value="Log In" />
                         </div>
-                   }
-                    <div>
+                    }
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-     </div>
-   </div>
+    </div>
 
     <!--main content-->
     <div class="container">
         <div class="col-md-8">
-            @using (Html.BeginForm("search","Home"))
-            {
-                <div class="form-group">
-                    <label>Enter Syptoms</label>@Html.TextBox("_txtSearch", "", new { @class = "form-control" })
-                </div>
-                <div>
-                    <input class="btn btn-success" type="submit" name="_btnSubmit" value="Submit" />
-                </div>
-            }
+            <h1>Contact Us</h1>
+            <p>Our Information:</p>
+            <p>Name: Health Center</p>
+            <p>Mailing Address: 1234 Health Road, Toronto, ON, H3A L1H</p>
+            <p>Phone Number: (416)-(456)-(6666)</p>
+            <p>Fax: (896)-(454)-(3400)</p>
         </div>
         <h1></h1>
     </div>

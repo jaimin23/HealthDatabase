@@ -9,5 +9,7 @@ namespace HealthDataBase.Domain.Entities
     class Doctor : Person
     {
         // Doctor is a inheritance of Person class
+        string doctorID { get; set; }
+        string doctorEmail { get; set; }
     }
 }

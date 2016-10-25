@@ -10,9 +10,11 @@ namespace HealthDataBase.Domain.Persistence
     public class MainManager
     {
         private List<illness> _illList;
+        private List<users> _users;
         public MainManager()
         {
             _illList = new List<illness>();
+            _users = new List<users>();
         }
 
         public List<illness> populateList()
@@ -30,6 +32,19 @@ namespace HealthDataBase.Domain.Persistence
             _illList.Add(item);
 
             return _illList;
+        }
+        public List<users> populateUser()
+        {
+            users newUser = new users();
+            newUser.FirstName = "Fahad";
+            newUser.LastName = "Mirza";
+            newUser.EmailAddress = "mizra.fahad@gmail.com";
+            newUser.PhoneNumber = "9075996059";
+            newUser.username = "mirza1";
+            newUser.password = "mirza1";
+            _users.Add(newUser);
+
+            return _users;
         }
 
         public illness Search(string _txtSearch)
