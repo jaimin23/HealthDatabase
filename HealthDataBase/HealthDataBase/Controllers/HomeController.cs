@@ -52,7 +52,7 @@ namespace HealthDataBase.Controllers
         [HttpPost]
         public ViewResult SignUp(users user)
         {
-            
+            user.userType = TypeOfUsers.user;
             return View(user);
         }
         [HttpPost]

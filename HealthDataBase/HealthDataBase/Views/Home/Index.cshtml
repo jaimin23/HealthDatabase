@@ -105,10 +105,10 @@ code from w3school.com
                    @using (Html.BeginForm("LogIn", "Home"))
                    {
                     <div class="form-group">
-                        <label>Username</label>@Html.TextBox("username", "", new { @class = "form-control" })
+                        <label>Username</label>@Html.TextBox("username", "", new {  @class = "form-control" })
                     </div>
                         <div class="form-group">
-                            <label>Password</label>@Html.TextBox("password", "", new { @class = "form-control" })
+                            <label>Password</label>@Html.TextBox("password", "", new {type="password", @class = "form-control" })
                         </div>
                         <div>
                             <input class="btn btn-success" type="submit" name="_btnLogIn" value="Log In" />
