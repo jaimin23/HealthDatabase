@@ -1,4 +1,5 @@
-﻿@model HealthDataBase.Domain.Entities.illness
+﻿@using HealthDataBase.Domain.Entities
+@model IEnumerable<illness>
 
 @{
     Layout = null;
@@ -12,8 +13,12 @@
     <title>Result</title>
 </head>
 <body>
+    <h1>Hello Result</h1>
     <div> 
-        <h1>base on your syptoms you have @Model.Name and its treatment is @Model.treatment</h1>
+        @foreach(illness i in Model)
+        {
+            @:<h1>Your illness is @i.Name and you Treatment is @i.treatment</h1>
+        }
     </div>
 </body>
 </html>

@@ -46,8 +46,11 @@
     <Compile Include="Entities\illness.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\users.cs" />
-    <Compile Include="Persistence\MainManager.cs" />
+    <Compile Include="Entities\MainManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Persistence\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

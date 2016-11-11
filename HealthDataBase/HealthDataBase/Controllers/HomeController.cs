@@ -1,9 +1,6 @@
 ﻿using HealthDataBase.Domain.Entities;
-using HealthDataBase.Domain.Persistence;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace HealthDataBase.Controllers
@@ -22,10 +19,22 @@ namespace HealthDataBase.Controllers
         }
        
         // GET: Home
+        
         public ActionResult Index()
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult auto(string Prefix)
+       {
+            var symptom = MManger.symptom(Prefix).ToList();
+            return Json(symptom, JsonRequestBehavior.AllowGet);
+    
+        }
+       
+    
+       
         public ActionResult AboutUs()
         {
             return View();
@@ -38,16 +47,19 @@ namespace HealthDataBase.Controllers
         {
             return View();
         }
-        public ViewResult Search(string _txtSearch)
+        public ActionResult Search(string _txtSearch)
         {
-            foreach(string i in MManger.Search(_txtSearch).symptomArray)
+           
+            if (string.IsNullOrEmpty(_txtSearch))
             {
-                if(_txtSearch == i)
-                {
-                    return View("result",MManger.Search(_txtSearch));
-                }
+                return View("Result");
             }
-            return View();
+            else
+            {
+                return View("Result",MManger.Search(i=>i.symptomArray.Contains(_txtSearch)));
+            }
+
+            
         }
         [HttpPost]
         public ViewResult SignUp(users user)

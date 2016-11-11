@@ -17,8 +17,29 @@ code from w3school.com
     <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <script src="~/scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $("#search").autocomplete({
+              source: function (request,response) {
+                  //debugger;
+                  $.ajax({
+                      url: '@Url.Action("auto","Home")',
+                      dataType: 'json',
+                      method: 'POST',
+                      data: { Prefix: request.term },
+                      success: function (data) {
+                          response($.map(data, function (item) {
+                              return { label: item, value: item }
+                          }))
+                      }
+                  });
+              }
+          })});
+    </script>
     
-  
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -125,12 +146,15 @@ code from w3school.com
    </div>
 
     <!--main content-->
-    <div class="container">
+    <div class="jumbotron" style="margin-top:-25px;">
+        <h1 class="text-center">Welcome to the HealthData Base</h1>
+    </div>
+    <div class="container" >
         <div class="col-md-8">
-            @using (Html.BeginForm("search","Home"))
+            @using (Html.BeginForm("Search", "Home"))
             {
                 <div class="form-group">
-                    <label>Enter Syptoms</label>@Html.TextBox("_txtSearch", "", new { @class = "form-control" })
+                    <label>Enter Syptoms</label> @Html.TextBox("_txtSearch", "", new { id = "search" ,@class = "form-control" })
                 </div>
                 <div>
                     <input class="btn btn-success" type="submit" name="_btnSubmit" value="Submit" />

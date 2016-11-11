@@ -10,7 +10,7 @@ namespace HealthDataBase.Domain.Entities
     {
         public string Name { get; set; }
         public string treatment { get; set; }
-        public List<String> symptomArray { get; set; }
+        public List<string> symptomArray { get; set; }
         public string priority { get; set; }
     }
 }
