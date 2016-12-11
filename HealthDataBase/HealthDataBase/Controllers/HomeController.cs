@@ -9,12 +9,13 @@ namespace HealthDataBase.Controllers
     {
         private List<illness> _list;
         private List<users> _userList;
+        private IUserRepository _user;
         MainManager MManger;
-       public HomeController()
+       public HomeController(IUserRepository user)
         {
             MManger = new MainManager();
             _list = MManger.populateList();
-            _userList = MManger.populateUser();
+            _user = user;
 
         }
        
@@ -64,17 +65,25 @@ namespace HealthDataBase.Controllers
         [HttpPost]
         public ViewResult SignUp(users user)
         {
-            user.userType = TypeOfUsers.user;
-            return View(user);
+            if(user != null)
+            {
+                user.UserType = TypeOfUsers.User;
+                _user.SaveUser(user);
+
+            }
+            return View("SignUp",user);
         }
         [HttpPost]
-        public ViewResult LogIn(users user)
+        public ViewResult LogIn(string username, string password)
         {
-            foreach(users i in _userList)
+            foreach(users user in _user.UserList)
             {
-                if(i.username == user.username && i.password == user.password)
+                if(user.UserName == username)
                 {
-                    return View(i);
+                    if(user.UserPassword == password)
+                    {
+                        return View("AboutUs");
+                    }
                 }
             }
             return View();

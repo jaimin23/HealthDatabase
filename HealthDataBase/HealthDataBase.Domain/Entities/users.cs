@@ -7,19 +7,31 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
-    public enum TypeOfUsers
+    public enum TypeOfUsers : byte
     {
-        admin,
-        doctor,
-        user
+        User,
+        Admin,
+        Doctor
     }
     public class users: Person
     {
-        
+        [Key]
+        public int UserId { get; set; }
         [Required(ErrorMessage = "Please enter your Username")]
-        public string username { get; set; }
+        public string UserName { get; set; }
         [Required(ErrorMessage = "Please enter your Password")]
-        public string password { get; set; }
-        public TypeOfUsers userType { get; set; }
+        public string UserPassword { get; set; }
+        public TypeOfUsers UserType { get; set; }
+
+        public void Change(users user)
+        {
+            this.FirstName = user.FirstName;
+            this.LastName = user.LastName;
+            this.EmailAddress = user.EmailAddress;
+            this.PhoneNumber = user.PhoneNumber;
+            this.UserName = user.UserName;
+            this.UserPassword = user.UserPassword;
+            this.UserType = user.UserType;
+        }
     }
 }

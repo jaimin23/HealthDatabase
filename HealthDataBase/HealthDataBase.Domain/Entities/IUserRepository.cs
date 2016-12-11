@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
-    class Doctor : Person
+    public interface IUserRepository
     {
-        // Doctor is a inheritance of Person class
-        string doctorID { get; set; }
-        string doctorEmail { get; set; }
+        IEnumerable<users> UserList { get; }
+
+        void SaveUser(users user);
     }
 }
