@@ -203,6 +203,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebAppDependencyResolver.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ViewSwitcherController.cs" />
     <Compile Include="Global.asax.cs">
@@ -234,7 +235,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HealthDataBase.Domain\HealthDataBase.Domain.csproj">
       <Project>{73272154-467a-4b12-ba0b-359a8c5e7e04}</Project>
