@@ -30,7 +30,7 @@ namespace HealthDataBase.Domain.Entities
             illness item = new illness();
             item.Name = "flu";
             item.treatment = "drink warm soup/ use tynol";
-            item.priority = "4";
+            item.Priority = TypeOfPriority.High;
             item.symptomArray = new List<string>();
             item.symptomArray.Add("Headache");
             item.symptomArray.Add("Coughs");
