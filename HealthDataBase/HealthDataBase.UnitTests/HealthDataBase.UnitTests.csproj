@@ -58,9 +58,9 @@
       <Project>{73272154-467a-4b12-ba0b-359a8c5e7e04}</Project>
       <Name>HealthDataBase.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HealthDataBase\HealthDataBase.WebUI.csproj">
+    <ProjectReference Include="..\HealthDataBase\HealthDataBase.WebApp.csproj">
       <Project>{8d976417-6dda-4b33-b0e7-5bc75e98903d}</Project>
-      <Name>HealthDataBase.WebUI</Name>
+      <Name>HealthDataBase.WebApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

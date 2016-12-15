@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthDataBase.WebUI", "HealthDataBase\HealthDataBase.WebUI.csproj", "{8D976417-6DDA-4B33-B0E7-5BC75E98903D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthDataBase.WebApp", "HealthDataBase\HealthDataBase.WebApp.csproj", "{8D976417-6DDA-4B33-B0E7-5BC75E98903D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthDataBase.UnitTests", "HealthDataBase.UnitTests\HealthDataBase.UnitTests.csproj", "{F1497581-1708-48D0-BAEE-53F8B808511E}"
 EndProject
