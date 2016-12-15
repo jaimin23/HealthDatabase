@@ -8,6 +8,10 @@
 <!--
 Fahad Mirza
 code from w3school.com
+get current location code from
+    http://www.aspsnippets.com/Articles/Get-Current-Location-Latitude-and-Longitude-using-JavaScript-and-HTML5.aspx
+google map code is from google developer site 
+    map was made using google map api
 -->
 <html>
 <head>
@@ -17,17 +21,92 @@ code from w3school.com
     <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <script src="~/scripts/bootstrap.min.js"></script>
+    <style>
+        #map {
+            height:100%;
+        }
+        
+    </style>
+    
+    <script>
+        var map;
+        var infowindow;
+        var LatLng;
 
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (p) {
+                    LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+                    var pyrmont = LatLng;
 
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: pyrmont,
+                        zoom: 15
+                    });
+
+                    infowindow = new google.maps.InfoWindow();
+                    var service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch({
+                        location: pyrmont,
+                        radius: 5000,
+                        type: ['hospital']
+                    }, callback);
+
+                    var marker = new google.maps.Marker({
+                        position: pyrmont,
+                        map: map,
+                        title: 'Your Location',
+                        label: 'You'
+                    });
+
+                });
+            } else {
+                alert('Geo Location feature is not supported in this browser.');
+            }
+            //{ lat: 43.5075890, lng: -79.6426520 }
+           
+        }
+
+        function callback(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+            }
+        }
+       
+        function createMarker(place) {
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(place.name);
+                infowindow.open(map, this);
+            });
+        }
+       
+    </script>
+
+    
+    
 </head>
 <body>
     @RenderPage("_header.cshtml")
-    
+
     <!--main content-->
     <div class="container">
         <div class="col-md-8">
             <h1>Recreating Maps....</h1>
         </div>
     </div>
+    <div id="map" style="height:500px; width:500px; margin:auto;"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuhdOzuwk8oKJa1oFuhD9UCaEZ_j7YmiU&libraries=places&callback=initMap" async defer></script>
+
+    <div id="dvMap" style="width: 500px; height: 500px">
+    </div>
 </body>
+
 </html>
