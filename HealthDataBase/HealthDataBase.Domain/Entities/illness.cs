@@ -16,7 +16,7 @@ namespace HealthDataBase.Domain.Entities
         public int IllnessId { get; set; }
         public string Name { get; set; }
         public string treatment { get; set; }
-        public List<string> symptomArray { get; set; }
+        public string Symptoms { get; set; }
         public TypeOfPriority Priority { get; set; }
     }
 }

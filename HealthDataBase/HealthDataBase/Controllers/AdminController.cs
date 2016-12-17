@@ -9,7 +9,7 @@ namespace HealthDataBase.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
-        public ActionResult Index()
+        public ActionResult AdminHome()
         {
             return View();
         }

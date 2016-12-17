@@ -14,5 +14,7 @@ namespace HealthDataBase.Domain.Persistence
         public HealthDbContext(): base("HealthDbConnection") { }
 
         public DbSet<users> Users { get; set; }
+
+        public System.Data.Entity.DbSet<HealthDataBase.Domain.Entities.illness> illnesses { get; set; }
     }
 }

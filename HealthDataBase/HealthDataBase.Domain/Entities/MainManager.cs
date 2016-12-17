@@ -31,9 +31,9 @@ namespace HealthDataBase.Domain.Entities
             item.Name = "flu";
             item.treatment = "drink warm soup/ use tynol";
             item.Priority = TypeOfPriority.High;
-            item.symptomArray = new List<string>();
-            item.symptomArray.Add("Headache");
-            item.symptomArray.Add("Coughs");
+            //item.symptomArray = new List<string>();
+            item.Symptoms = "Headache";
+            item.Symptoms = "Coughs";
             _illList.Add(item);
 
             return _illList;

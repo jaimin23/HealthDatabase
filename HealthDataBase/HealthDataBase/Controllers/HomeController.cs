@@ -57,13 +57,13 @@ namespace HealthDataBase.Controllers
             }
             else
             {
-                return View("Result",MManger.Search(i=>i.symptomArray.Contains(_txtSearch)));
+                return View("Result",MManger.Search(i=>i.Symptoms.Contains(_txtSearch)));
             }
 
             
         }
         [HttpPost]
-        public ViewResult SignUp(users user)
+        public ActionResult SignUp(users user)
         {
             if(user != null)
             {
@@ -74,7 +74,7 @@ namespace HealthDataBase.Controllers
             return View("SignUp",user);
         }
         [HttpPost]
-        public ViewResult LogIn(string username, string password)
+        public ActionResult LogIn(string username, string password)
         {
             foreach(users user in _user.UserList)
             {
@@ -82,7 +82,18 @@ namespace HealthDataBase.Controllers
                 {
                     if(user.UserPassword == password)
                     {
-                        return View("AboutUs");
+                        if (user.UserType == TypeOfUsers.User)
+                        {
+                            return RedirectToAction("UserHome", "User");
+                        }
+                        else if (user.UserType == TypeOfUsers.Doctor)
+                        {
+                            return RedirectToAction("DoctorHome", "Doctor");
+                        }
+                        else if (user.UserType == TypeOfUsers.Admin)
+                        {
+                            return RedirectToAction("AdminHome", "Admin");
+                        }
                     }
                 }
             }
