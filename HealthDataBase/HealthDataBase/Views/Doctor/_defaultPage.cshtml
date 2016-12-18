@@ -81,7 +81,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Session["LoginState"] != null && (Session["LoginState"] as bool?) == true)
                     {
-                        <li><a data-toggle="modal" data-target="#USERPOP" href="#"><span class="glyphicon glyphicon-tower"></span> @Session["UserName"]</a></li>
+                        <li><a data-toggle="modal" data-target="#USERPOP" href="#"><span class="glyphicon glyphicon-tower"></span> @userEntity.FirstName</a></li>
                         <li><a href="@Url.Action("LogOut","User")"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                     }
                     else
