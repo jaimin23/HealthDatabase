@@ -10,12 +10,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
     <title>Add New User</title>
 </head>
 <body>
     <div class="panel panel-success">
         <div class="panel-heading text-center">
-            <h4>Add Invoice</h4>
+            <h4>Add User</h4>
         </div>
         <div class="panel-body text-center">
             @using (Html.BeginForm("AddNewUser", "Admin"))
@@ -44,6 +46,10 @@
                 <div class="form-group col-md-5">
                     <label>Phone Number:</label>
                     @Html.TextBoxFor(i => i.PhoneNumber, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-5">
+                    <label>User Type:</label>
+                    @Html.DropDownList("UserType", new SelectList(Enum.GetNames(typeof(TypeOfUsers))), "Select User Type", new { @class = "form-control" })
                 </div>
                 <div class="text-center">
                     <input type="submit" value="Add User" class="btn btn-success" />

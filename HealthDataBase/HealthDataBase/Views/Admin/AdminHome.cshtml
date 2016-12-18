@@ -15,12 +15,21 @@
     <script src="~/scripts/bootstrap.min.js"></script>
 </head>
 <body>
-    @RenderPage("_defaultPage.cshtml")
-    <div>
-        <h1>Welcome to the Admin's Portal @ViewBag.adminName</h1>
-        @Html.ActionLink("Add New User", "AddNewUser")
-        @Html.ActionLink("View Current Users","ViewUsers")
-        @Html.ActionLink("Change User Information","UpdateUserInfo")
-    </div>
+    @if (ViewBag.isAdmin == true)
+    {    
+        @RenderPage("_defaultPage.cshtml")
+        <div>
+            <h1>Welcome to the Admin's Portal @ViewBag.adminName</h1>
+            @Html.ActionLink("Add New User", "AddNewUser")
+            @Html.ActionLink("View Current Users", "ViewUsers")
+            @Html.ActionLink("Change User Information", "UpdateUserInfo")
+        </div>
+
+    }
+    else
+    {
+        @:Please enter your proper credentials to access this page.
+    }
+
 </body>
 </html>

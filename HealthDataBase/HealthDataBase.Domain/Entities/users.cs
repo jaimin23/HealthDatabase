@@ -21,6 +21,7 @@ namespace HealthDataBase.Domain.Entities
         public string UserName { get; set; }
         [Required(ErrorMessage = "Please enter your Password")]
         public string UserPassword { get; set; }
+        [Required(ErrorMessage = "Please Select the type of user")]
         public TypeOfUsers UserType { get; set; }
 
         public void Change(users user)
