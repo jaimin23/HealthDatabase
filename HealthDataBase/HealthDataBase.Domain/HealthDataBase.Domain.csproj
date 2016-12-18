@@ -64,6 +64,7 @@
     <Compile Include="Entities\illness.cs" />
     <Compile Include="Entities\IUserRepository.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Symptom.cs" />
     <Compile Include="Entities\UserRepository.cs" />
     <Compile Include="Entities\users.cs" />
     <Compile Include="Entities\MainManager.cs" />

@@ -8,8 +8,9 @@ namespace HealthDataBase.Domain.Entities
 {
     public enum TypeOfPriority: byte
     {
-        High = 1,
-        Low
+        
+        Low = 1,
+        High
     }
    public class illness
     {

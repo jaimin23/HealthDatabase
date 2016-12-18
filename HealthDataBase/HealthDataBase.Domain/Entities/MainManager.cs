@@ -18,8 +18,6 @@ namespace HealthDataBase.Domain.Entities
             sym.Add("Coughs");
             sym.Add("Headaches");
             sym.Add("Pain");
-            sym.Add("something");
-            sym.Add("Cheadache");
         }
 
         public List<illness> populateList()
