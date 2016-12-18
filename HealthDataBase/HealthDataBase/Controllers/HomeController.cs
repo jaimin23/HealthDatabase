@@ -83,21 +83,32 @@ namespace HealthDataBase.Controllers
                     {
                         if (user.UserType == TypeOfUsers.User)
                         {
+                            Session["User"] = user;
                             Session["UserName"] = user.FirstName;
+                            Session["LoginState"] = true;
                             return RedirectToAction("UserHome", "User");
                         }
                         else if (user.UserType == TypeOfUsers.Doctor)
                         {
+                            Session["User"] = user;
                             Session["DocName"] = user.FirstName;
+                            Session["LoginState"] = true;
                             return RedirectToAction("DoctorHome", "Doctor");
                         }
                         else if (user.UserType == TypeOfUsers.Admin)
                         {
+                            Session["User"] = user;
                             Session["AdminName"] = user.FirstName;
+                            Session["LoginState"] = true;
                             return RedirectToAction("AdminHome", "Admin");
                         }
                     }
+                    else
+                    {
+                        ViewBag.error = "Password is incorrect or not found";
+                    }
                 }
+                ViewBag.error = "User name is incorrect or not found";
             }
             return View();
         }

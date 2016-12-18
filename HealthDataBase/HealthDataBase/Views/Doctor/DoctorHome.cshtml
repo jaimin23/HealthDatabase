@@ -8,8 +8,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>DoctorHome</title>
+    
+    <script src="~/scripts/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="~/scripts/bootstrap.min.js"></script>
 </head>
 <body>
+    @RenderPage("_defaultPage.cshtml")
     <div> 
         <h1>Welcome to Doctor's Portal View, @ViewBag.docName</h1>
         @Html.ActionLink("View Illnesses", "IllnessView", "Doctor")

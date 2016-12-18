@@ -13,5 +13,10 @@ namespace HealthDataBase.Controllers
         {
             return View();
         }
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index","Home");
+        }
     }
 }
