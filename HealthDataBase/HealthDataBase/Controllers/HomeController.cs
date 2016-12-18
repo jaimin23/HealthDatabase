@@ -8,7 +8,6 @@ namespace HealthDataBase.Controllers
     public class HomeController : Controller
     {
         private List<illness> _list;
-        private List<users> _userList;
         private IUserRepository _user;
         MainManager MManger;
        public HomeController(IUserRepository user)
@@ -84,14 +83,17 @@ namespace HealthDataBase.Controllers
                     {
                         if (user.UserType == TypeOfUsers.User)
                         {
+                            Session["UserName"] = user.FirstName;
                             return RedirectToAction("UserHome", "User");
                         }
                         else if (user.UserType == TypeOfUsers.Doctor)
                         {
+                            Session["DocName"] = user.FirstName;
                             return RedirectToAction("DoctorHome", "Doctor");
                         }
                         else if (user.UserType == TypeOfUsers.Admin)
                         {
+                            Session["AdminName"] = user.FirstName;
                             return RedirectToAction("AdminHome", "Admin");
                         }
                     }

@@ -11,6 +11,7 @@ namespace HealthDataBase.Controllers
         // GET: Doctor
         public ActionResult DoctorHome()
         {
+            ViewBag.docName = Session["DocName"];
             return View();
         }
     }

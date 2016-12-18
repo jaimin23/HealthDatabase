@@ -242,6 +242,9 @@
     <Content Include="Views\Home\_header.cshtml" />
     <Content Include="Views\User\_Userheader.cshtml" />
     <Content Include="Views\User\UserHome.cshtml" />
+    <Content Include="Views\Doctor\DoctorHome.cshtml" />
+    <Content Include="Views\Admin\AdminHome.cshtml" />
+    <Content Include="Views\Admin\AddNewUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,10 +252,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Doctor\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HealthDataBase.Domain\HealthDataBase.Domain.csproj">
       <Project>{73272154-467a-4b12-ba0b-359a8c5e7e04}</Project>

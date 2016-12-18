@@ -9,7 +9,7 @@ namespace HealthDataBase.Domain.Entities
 {
     public enum TypeOfUsers : byte
     {
-        User,
+        User =1 ,
         Admin,
         Doctor
     }

@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DoctorHome</title>
+</head>
+<body>
+    <div> 
+        <h1>Welcome to Doctor's Portal View, @ViewBag.docName</h1>
+        @Html.ActionLink("View Illnesses", "IllnessView", "Doctor")
+        @Html.ActionLink("Add Illnesses", "AddNewIllness", "Doctor")
+    </div>
+</body>
+</html>
