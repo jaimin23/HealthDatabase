@@ -81,42 +81,38 @@ namespace HealthDataBase.Controllers
         [HttpPost]
         public ActionResult LogIn(string username, string password)
         {
-            foreach(users user in _user.UserList)
+            users user = _user.UserList.FirstOrDefault(u => u.UserName == username && u.UserPassword == password);
+            if (user != null)
             {
-                if(user.UserName == username)
+                if (user.UserType == TypeOfUsers.User)
                 {
-                    if(user.UserPassword == password)
-                    {
-                        if (user.UserType == TypeOfUsers.User)
-                        {
-                            Session["User"] = user;
-                            Session["UserName"] = user.FirstName;
-                            Session["LoginState"] = true;
-                            return RedirectToAction("UserHome", "User");
-                        }
-                        else if (user.UserType == TypeOfUsers.Doctor)
-                        {
-                            Session["User"] = user;
-                            Session["UserName"] = user.FirstName;
-                            Session["LoginState"] = true;
-                            return RedirectToAction("DoctorHome", "Doctor");
-                        }
-                        else if (user.UserType == TypeOfUsers.Admin)
-                        {
-                            Session["User"] = user;
-                            Session["UserName"] = user.FirstName;
-                            Session["LoginState"] = true;
-                            return RedirectToAction("AdminHome", "Admin");
-                        }
-                    }
-                    else
-                    {
-                        ViewBag.error = "Password is incorrect or not found";
-                    }
+                    Session["User"] = user;
+                    Session["UserName"] = user.FirstName;
+                    Session["LoginState"] = true;
+                    return RedirectToAction("UserHome", "User");
                 }
-                ViewBag.error = "User name is incorrect or not found";
+                else if (user.UserType == TypeOfUsers.Doctor)
+                {
+                    Session["User"] = user;
+                    Session["UserName"] = user.FirstName;
+                    Session["LoginState"] = true;
+                    return RedirectToAction("DoctorHome", "Doctor");
+                }
+                else if (user.UserType == TypeOfUsers.Admin)
+                {
+                    Session["User"] = user;
+                    Session["UserName"] = user.FirstName;
+                    Session["LoginState"] = true;
+                    return RedirectToAction("AdminHome", "Admin");
+                }
+                else
+                {
+                    ViewBag.error = "Password is incorrect or not found";
+                }
             }
+            ViewBag.error = "User name is incorrect or not found";
             return View();
+            
         }
     }
 }

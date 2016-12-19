@@ -11,5 +11,7 @@ namespace HealthDataBase.Domain.Entities
         IEnumerable<users> UserList { get; }
 
         void SaveUser(users user);
+
+        void DeleteUser(int userId);
     }
 }

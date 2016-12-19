@@ -40,20 +40,30 @@ namespace HealthDataBase.Controllers
             ViewBag.uAuth = true;
             return View(_userRepo.UserList);
         }
-        [HttpGet]
-        public ActionResult UpdateUserInfo()
-        {
-            ViewBag.isAdmin = true;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult UpdateUserInfo(users user)
-        {
-            return RedirectToAction("AdminHome");
-        }
-
         public ActionResult EditUserInfo(int userId)
         {
+            users user = _userRepo.UserList.FirstOrDefault(u => u.UserId == userId);
+            if(user != null)
+            {
+                return View(user);
+            }
+            return View("AdminHome");
+        }
+
+        public ActionResult SaveUser(users user)
+        {
+            if (ModelState.IsValid)
+            {
+                if(Request.Form["_btnSubmit"] == "Save Info")
+                {
+                    _userRepo.SaveUser(user);
+                }
+                else if(Request.Form["_btnSubmit"] == "Delete User")
+                {
+                    
+                    _userRepo.DeleteUser(user.UserId);
+                }
+            }
             return RedirectToAction("ViewUsers");
         }
     }

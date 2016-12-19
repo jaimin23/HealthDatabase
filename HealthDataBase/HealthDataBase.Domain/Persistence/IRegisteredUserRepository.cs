@@ -12,5 +12,7 @@ namespace HealthDataBase.Domain.Persistence
         IEnumerable<users> ListOfUsers { get; }
 
         void SaveUser(users user);
+
+        void DeleteUser(int userId);
     }
 }

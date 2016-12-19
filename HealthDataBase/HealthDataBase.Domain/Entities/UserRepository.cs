@@ -23,5 +23,10 @@ namespace HealthDataBase.Domain.Entities
         {
             _repo.SaveUser(user);
         }
+
+        public void DeleteUser(int userId)
+        {
+            _repo.DeleteUser(userId);
+        }
     }
 }

@@ -38,5 +38,15 @@ namespace HealthDataBase.Domain.Persistence
 
             _dbContext.SaveChanges();
         }
+
+        public void DeleteUser(int userId)
+        {
+            users user = _dbContext.Users.Find(userId);
+            if(user != null)
+            {
+                _dbContext.Users.Remove(user);
+            }
+            _dbContext.SaveChanges();
+        }
     }
 }
