@@ -1,0 +1,58 @@
+﻿@using HealthDataBase.Domain.Entities
+@model IEnumerable<users>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <title>ViewUsers</title>
+</head>
+<body>
+    @if (ViewBag.uAuth == true)
+    {
+        <div class="container">
+            <table class="table table-condensed text-center">
+                <thead>
+                    <tr>
+                        <th>User Id</th>
+                        <th>User Name</th>
+                        <th>User Password</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email Address</th>
+                        <th>User Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (users user in Model)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(user.UserId.ToString(), "EditUserInfo", new { user.UserId })</td>
+                            <td>@user.UserName</td>
+                            <td>@user.UserPassword</td>
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.EmailAddress</td>
+                            <td>@user.UserType</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+                            }
+                            else
+                            {
+                                @:Please Enter the proper credentials before accessing this page
+         }
+
+
+
+</body>
+</html>

@@ -247,6 +247,7 @@
     <Content Include="Views\Admin\AddNewUser.cshtml" />
     <Content Include="Views\Doctor\_defaultPage.cshtml" />
     <Content Include="Views\Admin\_defaultPage.cshtml" />
+    <Content Include="Views\Admin\ViewUsers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

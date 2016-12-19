@@ -15,47 +15,47 @@
     <title>Add New User</title>
 </head>
 <body>
-    <div class="panel panel-success">
-        <div class="panel-heading text-center">
-            <h4>Add User</h4>
+        <div class="panel panel-success">
+            <div class="panel-heading text-center">
+                <h4>Add User</h4>
+            </div>
+            <div class="panel-body text-center">
+                @using (Html.BeginForm("AddNewUser", "Admin"))
+                {
+                    @Html.ValidationSummary()
+                    <div class="form-group col-md-5">
+                        <label>User Name:</label>
+                        @Html.TextBoxFor(i => i.UserName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Password:</label>
+                        @Html.TextBoxFor(i => i.UserPassword, new { @type = "password", @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>First Name:</label>
+                        @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Last Name:</label>
+                        @Html.TextBoxFor(i => i.LastName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Emailaddress: </label>
+                        @Html.TextBoxFor(i => i.EmailAddress, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Phone Number:</label>
+                        @Html.TextBoxFor(i => i.PhoneNumber, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>User Type:</label>
+                        @Html.DropDownList("UserType", new SelectList(Enum.GetNames(typeof(TypeOfUsers))), "Select User Type", new { @class = "form-control" })
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="Add User" class="btn btn-success" />
+                    </div>
+                }
+            </div>
         </div>
-        <div class="panel-body text-center">
-            @using (Html.BeginForm("AddNewUser", "Admin"))
-            {
-                @Html.ValidationSummary()
-                <div class="form-group col-md-5">
-                    <label>User Name:</label>
-                    @Html.TextBoxFor(i => i.UserName, new { @class = "form-control" })
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Password:</label>
-                    @Html.TextBoxFor(i => i.UserPassword, new { @class = "form-control" })
-                </div>
-                <div class="form-group col-md-5">
-                    <label>First Name:</label>
-                    @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control" })
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Last Name:</label>
-                    @Html.TextBoxFor(i => i.LastName, new { @class = "form-control" })
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Emailaddress: </label>
-                    @Html.TextBoxFor(i => i.EmailAddress, new { @class = "form-control" })
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Phone Number:</label>
-                    @Html.TextBoxFor(i => i.PhoneNumber, new { @class = "form-control" })
-                </div>
-                <div class="form-group col-md-5">
-                    <label>User Type:</label>
-                    @Html.DropDownList("UserType", new SelectList(Enum.GetNames(typeof(TypeOfUsers))), "Select User Type", new { @class = "form-control" })
-                </div>
-                <div class="text-center">
-                    <input type="submit" value="Add User" class="btn btn-success" />
-                </div>
-            }
-        </div>
-    </div>
 </body>
 </html>

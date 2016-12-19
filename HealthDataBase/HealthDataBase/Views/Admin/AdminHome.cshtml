@@ -20,9 +20,15 @@
         @RenderPage("_defaultPage.cshtml")
         <div>
             <h1>Welcome to the Admin's Portal @ViewBag.adminName</h1>
-            @Html.ActionLink("Add New User", "AddNewUser")
-            @Html.ActionLink("View Current Users", "ViewUsers")
-            @Html.ActionLink("Change User Information", "UpdateUserInfo")
+            <div class="btn btn-default">
+                @Html.ActionLink("Add New User", "AddNewUser")
+            </div>
+            <div class="btn btn-default">
+                @Html.ActionLink("View Current Users", "ViewUsers")
+            </div>
+            
+            
+            
         </div>
 
     }

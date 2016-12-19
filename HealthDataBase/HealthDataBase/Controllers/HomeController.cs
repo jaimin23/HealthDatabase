@@ -97,14 +97,14 @@ namespace HealthDataBase.Controllers
                         else if (user.UserType == TypeOfUsers.Doctor)
                         {
                             Session["User"] = user;
-                            Session["DocName"] = user.FirstName;
+                            Session["UserName"] = user.FirstName;
                             Session["LoginState"] = true;
                             return RedirectToAction("DoctorHome", "Doctor");
                         }
                         else if (user.UserType == TypeOfUsers.Admin)
                         {
                             Session["User"] = user;
-                            Session["AdminName"] = user.FirstName;
+                            Session["UserName"] = user.FirstName;
                             Session["LoginState"] = true;
                             return RedirectToAction("AdminHome", "Admin");
                         }

@@ -17,14 +17,13 @@ namespace HealthDataBase.Controllers
         // GET: Admin
         public ActionResult AdminHome()
         {
-            Session["adminName"] = ViewBag.adminName;
+            Session["UserName"] = ViewBag.adminName;
             ViewBag.isAdmin = true;
             return View();
         }
         [HttpGet]
         public ActionResult AddNewUser()
         {
-            ViewBag.isAdmin = true;
             return View();
         }
         [HttpPost]
@@ -38,7 +37,7 @@ namespace HealthDataBase.Controllers
         }
         public ActionResult ViewUsers()
         {
-            ViewBag.isAdmin = true;
+            ViewBag.uAuth = true;
             return View(_userRepo.UserList);
         }
         [HttpGet]
@@ -51,6 +50,11 @@ namespace HealthDataBase.Controllers
         public ActionResult UpdateUserInfo(users user)
         {
             return RedirectToAction("AdminHome");
+        }
+
+        public ActionResult EditUserInfo(int userId)
+        {
+            return RedirectToAction("ViewUsers");
         }
     }
 }
