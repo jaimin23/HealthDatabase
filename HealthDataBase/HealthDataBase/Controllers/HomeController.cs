@@ -1,4 +1,5 @@
 ﻿using HealthDataBase.Domain.Entities;
+using HealthDataBase.Domain.Persistence;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -11,12 +12,14 @@ namespace HealthDataBase.Controllers
       
         private IUserRepository _user;
         private IMainManager _mainManager;
+        private Iillness _illness;
         private List<string> _ajax;
-       public HomeController(IUserRepository user, IMainManager mainManager)
+       public HomeController(IUserRepository user, IMainManager mainManager, Iillness illness)
         {
             _user = user;
             _mainManager = mainManager;
             _ajax = new List<string>();
+            _illness = illness;
         }
        
         // GET: Home
@@ -113,6 +116,15 @@ namespace HealthDataBase.Controllers
             ViewBag.error = "User name is incorrect or not found";
             return View();
             
+        }
+        public ActionResult ViewDetails(int IllnessId)
+        {
+            illness ill = _illness.illnessTable.FirstOrDefault(i => i.IllnessId == IllnessId);
+            if(ill != null)
+            {
+                return View(ill);
+            }
+            return View();
         }
     }
 }

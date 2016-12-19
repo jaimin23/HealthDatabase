@@ -1,33 +1,22 @@
 ﻿@using HealthDataBase.Domain.Entities
-@model users
+@model illness
+
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-<!--
-Fahad Mirza
-code from w3school.com
-get current location code from
-    http://www.aspsnippets.com/Articles/Get-Current-Location-Latitude-and-Longitude-using-JavaScript-and-HTML5.aspx
-google map code is from google developer site 
-    map was made using google map api
--->
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Near By Clinics & Hospitals</title>
-    <script src="~/scripts/jquery-3.1.1.js"></script>
-    <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
-    <script src="~/scripts/bootstrap.min.js"></script>
+    <title>View Illness Details</title>
     <style>
         #map {
-            height:100%;
+            height: 100%;
         }
-        
     </style>
-    
+
     <script>
         var map;
         var infowindow;
@@ -63,8 +52,7 @@ google map code is from google developer site
             } else {
                 alert('Geo Location feature is not supported in this browser.');
             }
-            //{ lat: 43.5075890, lng: -79.6426520 }
-           
+
         }
 
         function callback(results, status) {
@@ -74,7 +62,7 @@ google map code is from google developer site
                 }
             }
         }
-       
+
         function createMarker(place) {
             var placeLoc = place.geometry.location;
             var marker = new google.maps.Marker({
@@ -87,21 +75,29 @@ google map code is from google developer site
                 infowindow.open(map, this);
             });
         }
-       
+
     </script>
 
-    
-    
 </head>
 <body>
-    @RenderPage("_header.cshtml")
-
-    <!--main content-->
     <div id="map" style="height:500px; width:500px; margin:auto;"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuhdOzuwk8oKJa1oFuhD9UCaEZ_j7YmiU&libraries=places&callback=initMap" async defer></script>
 
     <div id="dvMap" style="width: 500px; height: 500px">
     </div>
+    <div class="container text-center">
+        <p>Illness Name: @Model.Name</p>
+        <p>Illness Symptoms: @Model.Symptoms</p>
+        <p>Illnes Treatment: @Model.treatment</p>
+        @if(Model.Priority == TypeOfPriority.Low)
+        {
+            <p>Visit any local clinics for check-up</p>
+        }
+        else
+        {
+            <p>Please visit hospital to see specialist immediately</p>
+        }
+        @Html.ActionLink("Go Back to Home Page","Index")
+    </div>
 </body>
-
 </html>

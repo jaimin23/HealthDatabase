@@ -69,16 +69,26 @@ code from w3school.com
         @{IEnumerable<illness> illList = Session["Search"] as IEnumerable<illness>; }
         @if (Session["Search"] != null)
         {
-            foreach (illness ill in illList)
-            {
-                <div class="container">
-                    <p class="text-capitalize">Name: @ill.Name</p><br />
-                    <p>Treatment: @ill.treatment</p><br />
-                </div>
-                
-                
-            }
-
+            <div class="container">
+                <table class="table table-condensed text-center">
+                    <thead>
+                        <tr>
+                            <th>Illness Name</th>
+                            <th>Illness Treatment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(illness ill in illList)
+                        {
+                            <tr>
+                                <td>@ill.Name</td>
+                                <td>@ill.treatment</td>
+                                <td>@Html.ActionLink("View More Details","ViewDetails",new { ill.IllnessId})</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         }
         
     </div>
