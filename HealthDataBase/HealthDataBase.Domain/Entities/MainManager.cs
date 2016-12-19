@@ -7,41 +7,24 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
-    public class MainManager
+    public class MainManager:IMainManager
     {
-        private List<illness> _illList;
-        private List<string> sym;
-        public MainManager()
+        private IillnessInterface _illRepo;
+        private ISymptomR _symRepo;
+       public MainManager(IillnessInterface illRepo, ISymptomR symRepo) 
         {
-            _illList = new List<illness>();
-            sym = new List<string>();
-            sym.Add("Coughs");
-            sym.Add("Headaches");
-            sym.Add("Pain");
+            _illRepo = illRepo;
+            _symRepo = symRepo;
         }
+        
 
-        public List<illness> populateList()
-        {
-            //this method will get data from sql database to popluate the list dynamically
-           
-
-            illness item = new illness();
-            item.Name = "flu";
-            item.treatment = "drink warm soup/ use tynol";
-            item.Priority = TypeOfPriority.High;
-            //item.symptomArray = new List<string>();
-            item.Symptoms = "Headache";
-            item.Symptoms = "Coughs";
-            _illList.Add(item);
-
-            return _illList;
-        }
        
-        public IEnumerable<string> symptom(string prefix)
+       
+        public IEnumerable<Symptom> symptom(string prefix)
         {
-            foreach(string i in sym )
+            foreach(Symptom i in _symRepo.SymptomTable )
             {
-                if (i.StartsWith(prefix))
+                if (i.IllnessSymptoms.StartsWith(prefix))
                 {
                      yield return i;
                 }
@@ -49,14 +32,15 @@ namespace HealthDataBase.Domain.Entities
             
             
         }
-       public IEnumerable<illness> Search(Func<illness,bool>matchIllness)
+       public IEnumerable<illness> Search(string symptom)
         {
-            foreach(illness i in _illList)
+            foreach(illness i in _illRepo.illnessTable)
             {
-                if (matchIllness(i))
+                if (i.Symptoms.Contains(symptom))
                 {
                     yield return i;
                 }
+               
             }
         }
        

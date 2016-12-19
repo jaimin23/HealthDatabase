@@ -15,6 +15,11 @@ namespace HealthDataBase.Domain.Persistence
 
         public DbSet<users> Users { get; set; }
 
-        public System.Data.Entity.DbSet<HealthDataBase.Domain.Entities.illness> illnesses { get; set; }
+        public DbSet<illness> Illness { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+      {
+            modelBuilder.Entity<illness>().ToTable("Illness");
+        }
+        public DbSet<Symptom> symptoms { get; set; }
     }
 }

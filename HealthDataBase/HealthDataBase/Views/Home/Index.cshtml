@@ -23,16 +23,20 @@ code from w3school.com
     <script type="text/javascript">
       $(document).ready(function () {
           $("#search").autocomplete({
-              source: function (request,response) {
+              source: function (request, response) {
+                  var jsonData = JSON.stringify({ 'symptom': symptom });
+                  
                   //debugger;
                   $.ajax({
-                      url: '@Url.Action("auto","Home")',
+                      url: '@Url.Action("auto", "Home")',
                       dataType: 'json',
                       method: 'POST',
-                      data: { Prefix: request.term },
+                      data:JSON.stringify({ Prefix: request.term }),
                       success: function (data) {
                           response($.map(data, function (item) {
                               return { label: item, value: item }
+                              console.log(jsonData);
+                              alert(jsonData);
                           }))
                       }
                   });
@@ -59,6 +63,24 @@ code from w3school.com
                 </div>
             }
         </div>
+    </div>
+
+    <div>
+        @{IEnumerable<illness> illList = Session["Search"] as IEnumerable<illness>; }
+        @if (Session["Search"] != null)
+        {
+            foreach (illness ill in illList)
+            {
+                <div class="container">
+                    <p class="text-capitalize">Name: @ill.Name</p><br />
+                    <p>Treatment: @ill.treatment</p><br />
+                </div>
+                
+                
+            }
+
+        }
+        
     </div>
 </body>
 </html>

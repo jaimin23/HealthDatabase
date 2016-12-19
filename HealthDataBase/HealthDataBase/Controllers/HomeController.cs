@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace HealthDataBase.Controllers
 {
     public class HomeController : Controller
     {
-        private List<illness> _list;
+      
         private IUserRepository _user;
-        MainManager MManger;
-       public HomeController(IUserRepository user)
+        private IMainManager _mainManager;
+        private List<string> _ajax;
+       public HomeController(IUserRepository user, IMainManager mainManager)
         {
-            MManger = new MainManager();
-            _list = MManger.populateList();
             _user = user;
-
+            _mainManager = mainManager;
+            _ajax = new List<string>();
         }
        
         // GET: Home
@@ -28,8 +29,12 @@ namespace HealthDataBase.Controllers
         [HttpPost]
         public ActionResult auto(string Prefix)
        {
-            var symptom = MManger.symptom(Prefix).ToList();
-            return Json(symptom, JsonRequestBehavior.AllowGet);
+            var symptom = _mainManager.symptom(Prefix).ToList();
+            foreach(Symptom sym in symptom)
+            {
+                _ajax.Add(sym.IllnessSymptoms);
+            }
+            return Json (_ajax,JsonRequestBehavior.AllowGet);
     
         }
        
@@ -52,11 +57,12 @@ namespace HealthDataBase.Controllers
            
             if (string.IsNullOrEmpty(_txtSearch))
             {
-                return View("Result");
+                return RedirectToAction("Index","Home");
             }
             else
             {
-                return View("Result",MManger.Search(i=>i.Symptoms.Contains(_txtSearch)));
+                Session["Search"] = _mainManager.Search(_txtSearch);
+                return RedirectToAction("Index","Home");
             }
 
             

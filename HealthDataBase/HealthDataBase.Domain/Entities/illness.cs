@@ -19,5 +19,13 @@ namespace HealthDataBase.Domain.Entities
         public string treatment { get; set; }
         public string Symptoms { get; set; }
         public TypeOfPriority Priority { get; set; }
+
+        public void Change(illness ill)
+        {
+            this.Name = ill.Name;
+            this.treatment = ill.treatment;
+            this.Symptoms = ill.Symptoms;
+            this.Priority = ill.Priority;
+        }
     }
 }

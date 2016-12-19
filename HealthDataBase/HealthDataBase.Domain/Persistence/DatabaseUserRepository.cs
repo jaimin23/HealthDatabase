@@ -32,7 +32,7 @@ namespace HealthDataBase.Domain.Persistence
             }
             else
             {
-                users userEntity = _dbContext.Users.Find(user.UserName);
+                users userEntity = _dbContext.Users.Find(user.UserId);
                 userEntity.Change(user);
             }
 

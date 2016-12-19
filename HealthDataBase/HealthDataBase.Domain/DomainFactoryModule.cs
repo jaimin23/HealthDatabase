@@ -15,6 +15,11 @@ namespace HealthDataBase.Domain
         {
             Bind<IRegisteredUserRepository>().To<DatabaseUserRepository>();
             Bind<IUserRepository>().To<UserRepository>();
+            Bind<ISymptoms>().To <SymptomRepository> ();
+            Bind<ISymptomR>().To<SymRepository>();
+            Bind<Iillness>().To<illnessRepository>();
+            Bind<IillnessInterface>().To<IllnessRepository>();
+            Bind<IMainManager>().To<MainManager>();
         }
     }
 }
