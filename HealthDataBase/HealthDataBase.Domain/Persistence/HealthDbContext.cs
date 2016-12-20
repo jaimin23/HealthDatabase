@@ -21,6 +21,8 @@ namespace HealthDataBase.Domain.Persistence
         public DbSet<users> Users { get; set; }
 
         public DbSet<illness> Illness { get; set; }
+        
+        // this code makes sure the entity illness gets connected to illness
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
       {
             modelBuilder.Entity<illness>().ToTable("Illness");
