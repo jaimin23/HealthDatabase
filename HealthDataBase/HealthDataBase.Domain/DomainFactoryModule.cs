@@ -9,6 +9,13 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// A class which inherits the Ninject Module which 
+    /// is reposible for binding all the data in one instance of the program 
+    /// and will be called whenever the program requires the user of the data being 
+    /// binded together
+    /// </summary>
     public class DomainFactoryModule : NinjectModule
     {
         public override void Load()

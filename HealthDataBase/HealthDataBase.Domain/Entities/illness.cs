@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+    /// Fahad Mirza
+    /// This class creates the illnessese with 
+    /// the following properties
+    /// IllnessId, Name, treatment, Symptoms, Priority and a change method which will be used for updating the illness information
+    /// </summary>
     public enum TypeOfPriority: byte
     {
         

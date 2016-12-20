@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// This interface contains the operation related to user and provides a 
+    /// read-only list of users
+    /// </summary>
     public interface IUserRepository
     {
         IEnumerable<users> UserList { get; }

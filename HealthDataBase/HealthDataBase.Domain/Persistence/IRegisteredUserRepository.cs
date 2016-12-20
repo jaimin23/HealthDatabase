@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Persistence
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// </summary>
     public interface IRegisteredUserRepository
     {
         IEnumerable<users> ListOfUsers { get; }

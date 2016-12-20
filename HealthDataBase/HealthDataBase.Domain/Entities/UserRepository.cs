@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// The implementation class for the interface IUserRepository
+    /// which is being inherited and contains the code which 
+    /// makes all the operations possible
+    /// </summary>
     class UserRepository : IUserRepository
     {
         private IRegisteredUserRepository _repo;

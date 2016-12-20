@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Persistence
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// This class is reposible for doing the data base work which
+    /// is being done through the use of entity framework and contains the implementation 
+    /// of the IRegistereUserRepository
+    /// </summary>
     class DatabaseUserRepository : IRegisteredUserRepository
     {
         private HealthDbContext _dbContext;

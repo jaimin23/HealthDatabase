@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Persistence
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// This is the class where the data base data is being pulled through and being manipulated 
+    /// in other classes
+    /// </summary>
     class HealthDbContext :DbContext
     {
         public HealthDbContext(): base("HealthDbConnection") { }

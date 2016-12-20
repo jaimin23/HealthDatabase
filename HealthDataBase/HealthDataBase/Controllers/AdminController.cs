@@ -7,6 +7,10 @@ using System.Web.Mvc;
 
 namespace HealthDataBase.Controllers
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// This contoller contains the actions an admin can perform 
+    /// </summary>
     public class AdminController : Controller
     {
         private IUserRepository _userRepo;

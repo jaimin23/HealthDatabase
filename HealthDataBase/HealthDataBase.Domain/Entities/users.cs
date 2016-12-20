@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// This class makes a perticular user 
+    /// which also has the properties of a person
+    /// since a user IS-A person and user inherits the Person class
+    /// </summary>
     public enum TypeOfUsers : byte
     {
         User =1 ,

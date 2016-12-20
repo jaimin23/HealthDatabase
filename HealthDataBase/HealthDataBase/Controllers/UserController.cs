@@ -7,6 +7,11 @@ using System.Web.Mvc;
 
 namespace HealthDataBase.Controllers
 {
+    /// <summary>
+    /// Jaimin Patel
+    /// This controller contains the code which a user can perform actions 
+    /// like changing email, password phone and so on
+    /// </summary>
     public class UserController : Controller
     {
         private IUserRepository _userRepo;
