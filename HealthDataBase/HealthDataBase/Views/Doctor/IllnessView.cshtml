@@ -1,0 +1,56 @@
+﻿@using HealthDataBase.Domain.Entities
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IllnessView</title>
+</head>
+<body>
+    @RenderPage("_defaultPage.cshtml")
+    @if (Session["illAuth"] != null)
+    {
+
+        <div class="container">
+            <table class="table table-condensed text-center">
+                <thead>
+                    <tr>
+                        <th>Illness Id</th>
+                        <th>Name</th>
+                        <th>Priority</th>
+                        <th>Symptoms</th>
+                        <th>Treatment</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @{IEnumerable<illness> _illnessList = Session["illnessList"] as IEnumerable<illness>;  }
+                    @foreach (illness illness in _illnessList)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(illness.IllnessId.ToString(), "EditIllnessInfo", new { illness.IllnessId })</td>
+                            <td>@illness.Name</td>
+                            <td>@illness.Priority</td>
+                            <td>@illness.Symptoms</td>
+                            <td>@illness.treatment</td>
+                          
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+                        }
+                        else
+                        {
+                            @:Please Enter the proper credentials before accessing this page
+         }
+
+
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 ﻿@using HealthDataBase.Domain.Entities
-@model illness
+
 
 @{
     Layout = null;
@@ -11,6 +11,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>View Illness Details</title>
+    
     <style>
         #map {
             height: 100%;
@@ -80,22 +81,23 @@
 
 </head>
 <body>
+    @RenderPage("_header.cshtml") 
     <div id="map" style="height:500px; width:500px; margin:auto;"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuhdOzuwk8oKJa1oFuhD9UCaEZ_j7YmiU&libraries=places&callback=initMap" async defer></script>
 
-    <div id="dvMap" style="width: 500px; height: 500px">
-    </div>
+    
     <div class="container text-center">
-        <p>Illness Name: @Model.Name</p>
-        <p>Illness Symptoms: @Model.Symptoms</p>
-        <p>Illnes Treatment: @Model.treatment</p>
-        @if(Model.Priority == TypeOfPriority.Low)
+        @{ illness ill = Session["ill"] as illness;}
+        <p style="font-weight:bold" class="text-capitalize">Illness Name:</p> @ill.Name
+        <p style="font-weight:bold" class="text-capitalize">Illness Symptoms:</p> @ill.Symptoms
+        <p style="font-weight:bold"  class="text-capitalize">Illness Treatment:</p> @ill.treatment
+        @if(ill.Priority == TypeOfPriority.Low)
         {
-            <p>Visit any local clinics for check-up</p>
+            <p style="font-weight:bold"  class="text-capitalize">Visit any local clinics for check-up</p>
         }
         else
         {
-            <p>Please visit hospital to see specialist immediately</p>
+            <p style="font-weight:bold"  class="text-capitalize text-danger">Please visit hospital to see specialist immediately</p>
         }
         @Html.ActionLink("Go Back to Home Page","Index")
     </div>

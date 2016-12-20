@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+/// Fahad Mirza
+/// </summary>
     class IllnessRepository : IillnessInterface
     {
         private Iillness _illRepo;
@@ -20,6 +23,11 @@ namespace HealthDataBase.Domain.Entities
             {
                 return _illRepo.illnessTable;
             }
+        }
+
+        public void DeleteIllness(int id)
+        {
+            _illRepo.DeleteIllness(id);
         }
 
         public void saveIllness(illness ill)

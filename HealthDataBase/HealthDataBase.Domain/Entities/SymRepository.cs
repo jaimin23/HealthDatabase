@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+    /// Fahad Mirza
+    /// </summary>
     class SymRepository : ISymptomR
     {
         private ISymptoms _symRepo;

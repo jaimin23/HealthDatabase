@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Persistence
 {
+
+    /// <summary>
+    /// Fahad Mirza
+    /// </summary>
     public interface ISymptoms
     {
         IEnumerable<Symptom> SymptomTable { get; }

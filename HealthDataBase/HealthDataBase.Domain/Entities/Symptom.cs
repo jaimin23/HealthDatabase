@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+    /// Fahad Mirza
+    /// Gets symptoms from symptom table
+    /// </summary>
     public class Symptom
     {
        [Key]

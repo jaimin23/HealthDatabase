@@ -37,8 +37,9 @@ namespace HealthDataBase.Controllers
         }
         public ActionResult ViewUsers()
         {
-            ViewBag.uAuth = true;
-            return View(_userRepo.UserList);
+           Session["auth"] = true;
+            Session["userList"] = _userRepo.UserList;
+            return View("ViewUsers");
         }
         public ActionResult EditUserInfo(int userId)
         {

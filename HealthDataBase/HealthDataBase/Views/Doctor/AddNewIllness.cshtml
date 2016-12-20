@@ -1,0 +1,49 @@
+﻿@using HealthDataBase.Domain.Entities
+@model illness
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewIllness</title>
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet"href="~/Content/bootstrap.min.css" />
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">
+            <h4>Add Illness</h4>
+        </div>
+        <div class="panel-body text-center">
+            @using (Html.BeginForm("AddNewIllness", "Doctor"))
+            {
+                @Html.ValidationSummary()
+                <div class="form-group col-md-5">
+                    <label>Name:</label>
+                    @Html.TextBoxFor(i => i.Name, new { @class = "form-control" })
+                </div>
+                    <div class="form-group col-md-5">
+                        <label>Treatment:</label>
+                        @Html.TextBoxFor(i => i.treatment, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Symptoms:</label>
+                        @Html.TextBoxFor(i => i.Symptoms, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Priority:</label>
+                        @Html.DropDownList("Priority", new SelectList(Enum.GetNames(typeof(TypeOfPriority))), "Select Type", new { @class = "form-control" })
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="Add Illness" class="btn btn-success" />
+                    </div>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace HealthDataBase.Domain.Entities
 {
+    /// <summary>
+    /// Fahad Mirza
+    /// searches for illness by symptom
+    /// gets the symptom from symptom table for ajax
+    /// </summary>
     public class MainManager:IMainManager
     {
         private IillnessInterface _illRepo;

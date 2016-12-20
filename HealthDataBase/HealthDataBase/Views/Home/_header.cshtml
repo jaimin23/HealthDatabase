@@ -177,35 +177,30 @@
         </div>
      </div>
    </div>
-    <div class="modal fade" id="USERPOP" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login</h4>
-                    @using (Html.BeginForm("LogIn", "Home"))
-                    {
-                        <div class="form-group">
-                            <label>Username</label>@Html.TextBox("username", "", new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>@Html.TextBox("password", "", new { type = "password", @class = "form-control" })
-                        </div>
+    @if (userEntity != null)
+    {
+        <div class="modal fade" id="USERPOP" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">@userEntity.FirstName</h4>
+                        <p>User Info: @userEntity.LastName</p>
+                        <p>User Type: @userEntity.UserType</p>
+                        <p>User Phone Number: @userEntity.PhoneNumber</p>
                         <div>
-                            <input class="btn btn-success" type="submit" name="_btnLogIn" value="Log In" />
-                        </div>
-                    }
-                    <div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-   
+
+    }
+    
     
 </body>
 </html>

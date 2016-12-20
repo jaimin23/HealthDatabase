@@ -7,6 +7,10 @@ using HealthDataBase.Domain.Entities;
 
 namespace HealthDataBase.Domain.Persistence
 {
+
+    /// <summary>
+    /// Fahad Mirza
+    /// </summary>
     class illnessRepository : Iillness
     {
         private HealthDbContext _dbContext;
@@ -31,8 +35,18 @@ namespace HealthDataBase.Domain.Persistence
             }
             else
             {
-                illness illEntity = _dbContext.Illness.Find(ill.Name);
+                illness illEntity = _dbContext.Illness.Find(ill.IllnessId);
                 illEntity.Change(ill); 
+            }
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteIllness(int id)
+        {
+            illness ill = _dbContext.Illness.Find(id);
+            if (ill != null)
+            {
+                _dbContext.Illness.Remove(ill);
             }
             _dbContext.SaveChanges();
         }

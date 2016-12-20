@@ -249,6 +249,9 @@
     <Content Include="Views\Admin\ViewUsers.cshtml" />
     <Content Include="Views\Admin\EditUserInfo.cshtml" />
     <Content Include="Views\Home\ViewDetails.cshtml" />
+    <Content Include="Views\Doctor\IllnessView.cshtml" />
+    <Content Include="Views\Doctor\AddNewIllness.cshtml" />
+    <Content Include="Views\Doctor\EditIllnessInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

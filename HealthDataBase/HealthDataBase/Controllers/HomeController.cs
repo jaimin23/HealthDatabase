@@ -7,6 +7,18 @@ using System.Web.Script.Serialization;
 
 namespace HealthDataBase.Controllers
 {
+
+    /// <summary>
+    /// Fahad Mirza
+    /// connected Ajax with symptom table and 
+    /// showed illness searched by symptom
+    /// used google api to show near by hopital and clinics in 
+    /// near by clinic view 
+    /// Jaimin Patel
+    /// did Login and SignUp
+    /// ViewDetail view 
+    /// 
+    /// </summary>
     public class HomeController : Controller
     {
       
@@ -120,9 +132,10 @@ namespace HealthDataBase.Controllers
         public ActionResult ViewDetails(int IllnessId)
         {
             illness ill = _illness.illnessTable.FirstOrDefault(i => i.IllnessId == IllnessId);
+            Session["ill"] = ill;
             if(ill != null)
             {
-                return View(ill);
+                return View("ViewDetails");
             }
             return View();
         }

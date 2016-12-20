@@ -7,6 +7,10 @@ using HealthDataBase.Domain.Entities;
 
 namespace HealthDataBase.Domain.Persistence
 {
+
+    /// <summary>
+    /// Fahad Mirza
+    /// </summary>
     class SymptomRepository : ISymptoms
     {
         private HealthDbContext _dbContext;
